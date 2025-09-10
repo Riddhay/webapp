@@ -1,0 +1,270 @@
+ /* General body and font styles */
+
+
+ 
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #f5f5f7;
+            color: #e2e8f0;
+            margin: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        
+
+          .wordmark {
+            color: rgb(0, 0, 0);
+            font-family: 'Poppins', serif;
+            font-size: 2em;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .wordmark span {
+            color: #2563eb;
+        }
+
+        header {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 3rem;
+            background-color: rgb(244, 244, 244);
+            width: 100%;
+            padding: 1em 2em 1em 2em;
+            box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+        }
+        
+        /* Main container for the content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Flexbox for the main two-column layout */
+        .main-layout {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        @media (min-width: 1024px) {
+            .main-layout {
+                flex-direction: row;
+            }
+        }
+
+        /* Left sidebar styling */
+        .sidebar {
+            flex-basis: 33.333333%;
+            flex-grow: 1;
+        }
+
+        .cover-image {
+            width: 100%;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            object-fit: cover;
+        }
+        
+        .info-section {
+            margin-top: 1.5em;
+            font-size: 0.875rem;
+            color: #10233b;
+            line-height: 1.5;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+        
+        .info-section strong {
+            color: #000000;
+        }
+
+        /* Right main content styling */
+        .main-content {
+            flex-basis: 66.666667%;
+            flex-grow: 1;
+        }
+
+        .reader-text span {
+            color: #1a72ff;
+        }
+        
+        /* Header and buttons styling */
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .header-title {
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: #1a72ff;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .button {
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        .button.blue {
+            background-color: #4299e1;
+            color: #fff;
+        }
+
+        .button.blue:hover {
+            background-color: #3182ce;
+        }
+
+        .button.red {
+            background-color: #e53e3e;
+            color: #fff;
+        }
+
+        .button.red:hover {
+            background-color: #c53030;
+        }
+
+        /* Description section */
+        .description-box {
+            background-color: #252525;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+            margin-bottom: 1.5rem;
+        }
+
+        .description-box p {
+            font-size: 0.875rem;
+            line-height: 1.625;
+            color: #ffffff;
+        }
+        
+        /* Chapter list styling */
+        .chapter-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .chapter-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #252525;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            transition: background-color 0.2s;
+            cursor: pointer;
+        }
+
+        .chapter-item:hover {
+            background-color: #4a5568;
+        }
+        
+        .chapter-title {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 0.875rem;
+        }
+        
+        .chapter-date {
+            font-size: 0.75rem;
+            color: rgb(255, 255, 255);
+        }
+        
+        .chapter-item svg {
+            width: 1rem;
+            height: 1rem;
+            color: #ffffff;
+        }
+
+        .show-all-btn {
+            display: block;
+            text-align: center;
+            margin: 1rem 0;
+            color: #161616;
+            font-weight: 600;
+            font-size: 0.875rem;
+            text-decoration: none;
+            transition: text-decoration 0.2s;
+        }
+        
+        .show-all-btn:hover {
+            text-decoration: underline;
+        }
+
+        .divider {
+            border-top: 1px solid #000000;
+            margin: 1rem 0;
+        }
+        
+        /* Shopping section styling */
+        .shopping-section {
+            margin-top: 2rem;
+        }
+
+        .shopping-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .shopping-header h2 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: #1a72ff;
+        }
+
+        .shopping-header svg {
+            width: 1.5rem;
+            height: 1.5rem;
+            color: #1a72ff;
+        }
+
+        .shopping-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem; 
+             width: 100%;
+             height: 300px;
+            object-fit: cover;
+            transition: .7s ease-in-out;
+            
+        } .shopping-item:hover {
+            transform: translateY(-0.25rem);
+        }
+
+        
+        @media (min-width: 640px) {
+            .shopping-grid {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+            }
+        }
+
+        .shopping-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 0.5rem;
+        }

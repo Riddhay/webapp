@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manga Library</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- Font Awesome for the search icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44u4LzF3V8tW+e0NfC5z6t9z0+G3B4p4e6dF0t/P4gWJc5eB1o/Xz5h5f5B5f5B5B5B5B==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="wordmark">Manga<span>Library</span></div>
+    </header>
+
+    <p class="title">Top Picks</p>
+
+    <div class="search-container">
+        <div class="search-input-wrapper">
+            <span class="search-icon">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </span>
+            <input type="text" id="search-bar" placeholder="Search by title...">
+        </div>
+        <button id="filter-button">Filter: Title</button>
+    </div>
+
+    <div id="card-container" class="card-container">
+        <!-- Manga Cards -->
+         <a href="/library/Attack_On_Titan.html" class="card-link">
+            <div class="card" data-genre="Action">
+                <img src="https://m.media-amazon.com/images/I/71NdNnKe8AL.jpg" alt="Attack on Titan"
+                    class="card-image">
+                <p>Attack on Titan</p>
+                <span class="genre-tag">Action</span>
+            </div>
+        </a>
+        <a href="/library/Chainsaw_Man.html" class="card-link">
+            <div class="card" data-genre="Sci-Fi">
+                <img src="https://www.shumishop.com.au/cdn/shop/products/chainsaw-man-vol-7-9781974720965_xlg.jpg?v=1652410949" alt="Chainsaw Man"
+                    class="card-image">
+                <p>Chainsaw Man</p>
+                <span class="genre-tag">Sci-Fi</span>
+            </div>
+        </a>
+           <a href="/library/Jujutsu_Kaisen.html" class="card-link">
+            <div class="card" data-genre="Fantasy">
+                <img src="https://comicvine.gamespot.com/a/uploads/scale_small/11158/111586527/9577297-30.jpg" alt="Jujutsu Kaisen"
+                    class="card-image">
+                <p>Jujutsu Kaisen</p>
+                <span class="genre-tag">Fantasy</span>
+            </div>
+        </a>
+        <a href="/library/One_Punch_Man.html" class="card-link">
+            <div class="card" data-genre="Comedy">
+                <img src="https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781974752508/one-punch-man-vol-30-9781974752508_hr.jpg" alt="One-Punch Man"
+                    class="card-image">
+                <p>One-Punch Man</p>
+                <span class="genre-tag">Comedy</span>
+            </div>
+        </a>
+         <a href="/library/Vinland_Saga.html" class="card-link">
+            <div class="card" data-genre="Action">
+                <img src="https://m.media-amazon.com/images/I/91+Qs9DaFZL._UF1000,1000_QL80_.jpg" alt="Vinland Saga"
+                    class="card-image">
+                <p>Vinland Saga</p>
+                <span class="genre-tag">Action</span>
+            </div>
+        </a>
+        
+
+
+
+
+
+        
+    </div>
+
+    <script>
+        // Get references to the HTML elements
+        const searchBar = document.getElementById('search-bar');
+        const filterButton = document.getElementById('filter-button');
+        const cards = document.querySelectorAll('.card');
+        let searchMode = 'title'; // Initial search mode
+        
+
+
+        /**
+         * This function handles the filtering logic based on the search query and mode.
+         * It loops through all the manga cards and shows/hides them based on a match.
+         */
+        const handleSearch = () => {
+            const query = searchBar.value.toLowerCase();
+
+            cards.forEach(card => {
+                let textToSearch;
+
+                // Check the current search mode to determine which text to search
+                if (searchMode === 'title') {
+                    // Search using the text in the <p> tag (the manga title)
+                    textToSearch = card.querySelector('p').textContent.toLowerCase();
+                } else {
+                    // Search using the text in the <span> tag (the genre)
+                    textToSearch = card.querySelector('.genre-tag').textContent.toLowerCase();
+                }
+
+                // If the search query is found in the text, make the card visible
+                if (textToSearch.includes(query)) {
+                    card.parentElement.style.display = 'block';
+                } else {
+                    // Otherwise, hide the card
+                    card.parentElement.style.display = 'none';
+                }
+            });
+        };
+
+        /**
+         * This function toggles the search mode when the filter button is clicked.
+         * It updates the button text and the search bar placeholder to reflect the current mode.
+         */
+        filterButton.addEventListener('click', () => {
+            if (searchMode === 'title') {
+                searchMode = 'genre';
+                filterButton.textContent = 'Filter: Genre';
+                searchBar.placeholder = 'Search by genre...';
+            } else {
+                searchMode = 'title';
+                filterButton.textContent = 'Filter: Title';
+                searchBar.placeholder = 'Search by title...';
+            }
+
+            // Re-run the search to instantly filter based on the new mode
+            handleSearch();
+        });
+
+        // Event listener for the search bar to filter as the user types
+        searchBar.addEventListener('input', handleSearch);
+    </script>
+</body>
+</html>
